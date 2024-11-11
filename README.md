@@ -1,0 +1,1 @@
+This project demonstrates how to create an interactive 3D cube that plays a sound effect when the user hovers over it. It uses HTML and CSS for the cube's 3D animation and a JavaScript feature to trigger the sound effect.
