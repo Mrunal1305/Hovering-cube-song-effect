@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Sound Effect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <audio id="hover-sound" src="old_MNIK-Tere Naina.mp3" preload="auto"></audio>
+
+<div class="container">
+<div class="cube">
+    <div style="--x:-1; --y:0;">
+        <span style="--i:3;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:1;"></span>
+    </div>
+    <div style="--x:0; --y:0;">
+        <span style="--i:3;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:1;"></span>
+    </div>
+    <div style="--x:1; --y:0;">
+        <span style="--i:3;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:1;"></span>
+    </div>
+</div>
+<div class="cube">
+    <div style="--x:-1; --y:0;">
+        <span style="--i:3;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:1;"></span>
+    </div>
+    <div style="--x:0; --y:0;">
+        <span style="--i:3;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:1;"></span>
+    </div>
+    <div style="--x:1; --y:0;">
+        <span style="--i:3;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:1;"></span>
+    </div>
+</div>
+<div class="cube">
+    <div style="--x:-1; --y:0;">
+        <span style="--i:3;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:1;"></span>
+    </div>
+    <div style="--x:0; --y:0;">
+        <span style="--i:3;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:1;"></span>
+    </div>
+    <div style="--x:1; --y:0;">
+        <span style="--i:3;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:1;"></span>
+    </div>
+</div>
+</div>
+<style>
+
+    .cube span {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-color: #4CAF50;
+        transition: background-color 0.3s;
+    }
+
+    .cube span:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<script>
+    // Get the audio element
+    const audio = document.getElementById('hover-sound');
+  
+    // Get all the span elements inside the cubes
+    const spans = document.querySelectorAll('.cube span');
+  
+    // Variable to track if audio is playing
+    let isPlaying = false;
+
+    // Add hover event listeners to each span
+    spans.forEach(span => {
+        span.addEventListener('mouseenter', () => {
+            if (!isPlaying) {
+                audio.play(); // Play the audio
+                isPlaying = true; // Set the flag to true
+            }
+        });
+    });
+
+    // Add mouseleave event to the container to stop audio when leaving all spans
+    document.querySelector('.container').addEventListener('mouseleave', () => {
+        audio.pause(); // Pause the audio
+        audio.currentTime = 0; // Reset audio to start
+        isPlaying = false; // Reset the flag
+    });
+</script>
+
+</body>
+</html>
